@@ -1,0 +1,14 @@
+<div id="field">
+    <% projects.forEach((repo) => { %>
+        <div class="avatar" data-stars="<%= repo.node.stargazerCount %>">
+            <% if (Math.max(repo.node.stargazerCount)) {%>
+                <!--                        <img class="crown" src="/images/crown.png" alt="crown">-->
+            <%}%>
+            <img class="avatarImg" src="<%= repo.node.owner.avatarUrl %>"/>
+            <img class="poppetje" src="/images/stilstaan.png" alt="avatar"/>
+            <a href="<%= repo.node.owner.url %>" target="_blank">
+                <p><%= repo.node.owner.login %></p>
+            </a>
+        </div>
+    <%})%>
+</div>

@@ -1,0 +1,37 @@
+.crown {
+    width: 70px;
+    position: fixed;
+}
+
+.avatar {
+    margin: 10px 10px 30px;
+    position: relative;
+    width: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 7em;
+}
+
+.avatar a {
+    color: black;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.avatarImg {
+    width: 40px;
+    border-radius: 50%;
+    position: fixed;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+.poppetje {
+    height: 50px;
+    margin-top: 2.5em;
+}

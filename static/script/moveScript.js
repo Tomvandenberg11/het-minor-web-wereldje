@@ -1,7 +1,6 @@
 // source: https://www.kirupa.com/html5/drag.htm
 
-const container = document.querySelector("#MainContainerId");
-const moveHelper = document.querySelector("main > a");
+const container = document.querySelector("#field");
 let activeItem = null;
 let active = false;
 
@@ -22,11 +21,11 @@ const dragStart = (e) => {
       }
 
       if (e.type === "touchstart") {
-        activeItem.querySelector('.poppetje').src = "bewegen-5.gif" 
+        activeItem.querySelector('.poppetje').src = "../images/bewegen-5.gif"
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
-        activeItem.querySelector('.poppetje').src = "bewegen-5.gif" 
+        activeItem.querySelector('.poppetje').src = "../images/bewegen-5.gif"
         activeItem.initialX = e.clientX - activeItem.xOffset;
         activeItem.initialY = e.clientY - activeItem.yOffset;
       }
@@ -36,7 +35,7 @@ const dragStart = (e) => {
 
 const dragEnd = (e) => {
   if (activeItem !== null) {
-    activeItem.querySelector('.poppetje').src = "stilstaan.png"
+    activeItem.querySelector('.poppetje').src = "../images/stilstaan.png"
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
   }
@@ -61,47 +60,47 @@ const drag = (e) => {
         }
       }
 
-    //   if (rectItem.top < 520 && rectItem.left < 180) {
-    //     activeItem.classList.remove("groter");
+      //   if (rectItem.top < 520 && rectItem.left < 180) {
+      //     activeItem.classList.remove("groter");
 
-    //     //Sleep uit lijst werkt nog niet goed
-    //     // var item = activeItem.id
-    //     // var index = list.indexOf(item);
-    //     // list.splice(index);
-    //   }
+      //     //Sleep uit lijst werkt nog niet goed
+      //     // var item = activeItem.id
+      //     // var index = list.indexOf(item);
+      //     // list.splice(index);
+      //   }
 
-    //   if (rectItem.left < -175) {
-    //     container.classList.remove("fireBorderLeft");
-    //     container.classList.add("fireBorderLeft");
+      //   if (rectItem.left < -175) {
+      //     container.classList.remove("fireBorderLeft");
+      //     container.classList.add("fireBorderLeft");
 
-    //     container.onanimationend = () => {
-    //       container.classList.remove("fireBorderLeft");
-    //     };
-    //   }
-    //   if (rectItem.left > 350) {
-    //     container.classList.remove("fireBorderRight");
-    //     container.classList.add("fireBorderRight");
+      //     container.onanimationend = () => {
+      //       container.classList.remove("fireBorderLeft");
+      //     };
+      //   }
+      //   if (rectItem.left > 350) {
+      //     container.classList.remove("fireBorderRight");
+      //     container.classList.add("fireBorderRight");
 
-    //     container.onanimationend = () => {
-    //       container.classList.remove("fireBorderRight");
-    //     };
-    //   }
-    //   if (rectItem.top < -145) {
-    //     container.classList.remove("fireBorderTop");
-    //     container.classList.add("fireBorderTop");
+      //     container.onanimationend = () => {
+      //       container.classList.remove("fireBorderRight");
+      //     };
+      //   }
+      //   if (rectItem.top < -145) {
+      //     container.classList.remove("fireBorderTop");
+      //     container.classList.add("fireBorderTop");
 
-    //     container.onanimationend = () => {
-    //       container.classList.remove("fireBorderTop");
-    //     };
-    //   }
-    //   if (rectItem.top > 750) {
-    //     container.classList.remove("fireBorderBottom");
-    //     container.classList.add("fireBorderBottom");
+      //     container.onanimationend = () => {
+      //       container.classList.remove("fireBorderTop");
+      //     };
+      //   }
+      //   if (rectItem.top > 750) {
+      //     container.classList.remove("fireBorderBottom");
+      //     container.classList.add("fireBorderBottom");
 
-    //     container.onanimationend = () => {
-    //       container.classList.remove("fireBorderBottom");
-    //     };
-    //   }
+      //     container.onanimationend = () => {
+      //       container.classList.remove("fireBorderBottom");
+      //     };
+      //   }
 
       e.preventDefault();
 
