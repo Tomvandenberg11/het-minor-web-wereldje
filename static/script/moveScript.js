@@ -1,4 +1,7 @@
 // source: https://www.kirupa.com/html5/drag.htm
+import { randomizeItems } from "./randomizeitems.js";
+
+randomizeItems()
 
 const container = document.querySelector("#field");
 let activeItem = null;
@@ -21,11 +24,21 @@ const dragStart = (e) => {
       }
 
       if (e.type === "touchstart") {
-        activeItem.querySelector('.poppetje').src = "../images/bewegen-5.gif"
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
-        activeItem.querySelector('.poppetje').src = "../images/bewegen-5.gif"
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+
+        // if (activeItem.dataset.stars == 0) {
+        //   console.log('dood'+activeItem.dataset.stars)
+        //   activeItem.querySelector('.avatarImg').src = "../images/hoofdboem.gif"
+        //   activeItem.querySelector('.avatarImg').style.transform = 'scale(1.5) translateX(2px)'
+        // } else {
+        //   console.log('leeft'+activeItem.dataset.stars)
+        // }
+
+
         activeItem.initialX = e.clientX - activeItem.xOffset;
         activeItem.initialY = e.clientY - activeItem.yOffset;
       }
@@ -35,7 +48,7 @@ const dragStart = (e) => {
 
 const dragEnd = (e) => {
   if (activeItem !== null) {
-    activeItem.querySelector('.poppetje').src = "../images/stilstaan.png"
+    activeItem.querySelector('.poppetje').src = "../images/idle.png"
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
   }
