@@ -1,17 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<%- include('./components/head.ejs') -%>
+
 <body>
-    <h1>Hallo</h1>
-    <% projects.forEach((repo) => {
-        
-        %><p><%= repo.node.owner.login %></p><%
-    })%>
+    <div class="field">
+        <% projects.forEach((repo) => { %>
+            <div class="avatar">
+                <a href="<%= repo.node.owner.url %>" target="_blank">
+                    <% if (Math.max(repo.node.stargazerCount)) {%>
+                        <img class="crown" src="/images/crown.png" alt="crown">
+                    <%}%>
+                    <img class="avatarImg" src="<%= repo.node.owner.avatarUrl %>"/>
+                    <img class="poppetje" src="/images/bewegen-5.gif" alt="avatar"/>
+                    <p><%= repo.node.owner.login %></p>
+                </a>
+            </div>
+        <%})%>
+    </div>
 </body>
 </html>
