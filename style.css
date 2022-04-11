@@ -1,0 +1,40 @@
+img {
+    position: fixed;
+}
+
+a {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+.avatar {
+    margin: 10px 10px 30px;
+    position: relative;
+    width: 9%;
+}
+
+.avatar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 16em;
+}
+
+.avatarImg {
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.poppetje {
+    margin-top: 5em;
+}
+
+p {
+    position: absolute;
+    bottom: 0;
+}
