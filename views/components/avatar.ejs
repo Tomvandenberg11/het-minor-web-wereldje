@@ -1,11 +1,25 @@
+<% const commitObj = projects.map((item) => {
+    return {
+        "name": item.node.owner.login,
+        "stars": item.node.defaultBranchRef.target.history.totalCount
+    }
+})
+
+commitObj.sort((a, b) => {
+    return a.stars - b.stars;
+})
+
+const mostCommits = commitObj.reverse().slice(0, 1) %>
+
+
 <div id="field">
     <% projects.forEach((repo) => {%>
         <div class="avatar" data-stars="<%= repo.node.stargazerCount %>">
-            <% if (Math.max(repo.node.stargazerCount)) {%>
-                <!--                        <img class="crown" src="/images/crown.png" alt="crown">-->
+            <% if (mostCommits[0].name === repo.node.owner.login) {%>
+                <img class="crown" src="/images/crown.png" alt="crown">
             <%}%>
             <img class="avatarImg" src="<%= repo.node.owner.avatarUrl %>"/>
-            <img class="poppetje" src="/images/idle.png" alt="avatar"/> 
+            <img class="poppetje" src="/images/idle.png" alt="avatar"/>
             <a href="<%= repo.node.url %>" target="_blank">
                 <p><%= repo.node.owner.login %></p>
             </a>

@@ -54,6 +54,17 @@
     pointer-events: none;
 }
 
+.crown {
+    width: 40px;
+    margin-top: -30px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
 .poppetje {
     height: 50px;
     margin-top: 2.5em;
