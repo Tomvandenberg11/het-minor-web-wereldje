@@ -3,8 +3,6 @@ import { randomizeItems } from "./randomizeitems.js";
 
 randomizeItems()
 
-
-
 const container = document.querySelector("#field");
 let activeItem = null;
 let active = false;
@@ -50,10 +48,19 @@ const dragStart = (e) => {
 
 const dragEnd = (e) => {
   if (activeItem !== null) {
+    const rectItem = activeItem.getBoundingClientRect();
     activeItem.querySelector('.poppetje').src = "../images/idle.png"
+    activeItem.classList.remove('falling')
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
-  }
+
+    if ( rectItem.top < 450 ) {
+        console.log('dood');
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        activeItem.classList.add('falling')
+    }
+
+  } 
 
   active = false;
   activeItem = null;
@@ -127,8 +134,6 @@ const drag = (e) => {
       const rectItem = activeItem.getBoundingClientRect();
       console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
 
-      
-
       activeItem.currentX = e.clientX - activeItem.initialX;
       activeItem.currentY = e.clientY - activeItem.initialY;
     }
@@ -141,14 +146,17 @@ const drag = (e) => {
 };
 
 const setTranslate = (xPos, yPos, el) => {
-  let scaleyPos = yPos
+  const rectItem = activeItem.getBoundingClientRect();
+  let scaleyPos = rectItem.top / 670
 
-  if ( scaleyPos < 100) {
-    scaleyPos = 100;
+  console.log(scaleyPos);
+
+  if ( scaleyPos < .64 || rectItem.top < 260) {
+    scaleyPos = .64;
   }
 
   el.style.transform =
-    "translate3d(" + xPos + "px, " + yPos + "px, 0) scale(calc("+ scaleyPos +"/ 100))";
+    "translate3d(" + xPos + "px, " + yPos + "px, 0) scale("+ scaleyPos +")";
 };
 
 container.addEventListener("touchstart", dragStart, false);

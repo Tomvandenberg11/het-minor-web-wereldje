@@ -21,12 +21,14 @@
     --topBallPos: 1;
     --leftBallPos: 1;
     --scaleList: 1;
+    --avatarScale: calc(var(--topBallPos) / 70);
     --falltimer: 4;
   
-    top: var(--topBallPos);
+    top: calc(var(--topBallPos) * 1vh);
     left: var(--leftBallPos);
     z-index: var(--ballIndex);
-    animation: falling var(--falltimer) ease-in;
+    transform: scale(var(--avatarScale));
+    /* animation: falling var(--falltimer) ease-in; */
 }
 
 @keyframes falling {
@@ -69,4 +71,39 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     pointer-events: none;
+    transition: 3s;
+}
+
+.falling {
+    animation: falling 2s forwards;
+}
+
+.falling::before {
+    content: '';
+    position: absolute;
+    width: 170%;
+    height: 97vh;
+    opacity: 1;
+    z-index: -1;
+    filter: blur(20px);
+    top: -80vh;
+    background-color: lime;
+}
+
+.falling:after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 8vh;
+    opacity: 1;
+    z-index: -1;
+    filter: blur(20px);
+    bottom: -7vh;
+    background-color: limegreen;
+}
+
+@keyframes falling {
+    100%{
+        top: -10vh;
+    }
 }
