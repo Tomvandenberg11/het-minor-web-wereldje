@@ -28,19 +28,6 @@
     left: var(--leftBallPos);
     z-index: var(--ballIndex);
     transform: scale(var(--avatarScale));
-    /* animation: falling var(--falltimer) ease-in; */
-}
-
-@keyframes falling {
-    0% {
-        transform: translateY(-120vh);
-        pointer-events: none;
-    }
-
-    100%{
-        transform: translateY(0);
-        pointer-events: none;
-    }
 }
 
 .avatar a {
@@ -75,7 +62,7 @@
 }
 
 .falling {
-    animation: falling 2s forwards;
+    animation: falling 7s forwards;
 }
 
 .falling::before {
@@ -104,6 +91,6 @@
 
 @keyframes falling {
     100%{
-        top: -10vh;
+        top: -30vh;
     }
 }
