@@ -42,3 +42,28 @@
 .leaderboard li {
     list-style-type: none;
 }
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown p {
+    margin-bottom: 20px;
+}
+
+.dropdown label {
+    font-size: 18px;
+}
+
+.dropdown select {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.dropdown button {
+    padding: 10px;
+}
