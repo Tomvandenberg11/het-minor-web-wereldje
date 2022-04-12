@@ -7,6 +7,8 @@
 body {
     overflow: hidden;
     font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
 }
 
 #field {

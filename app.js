@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   graphqlAuth(`query {
   repositoryOwner(login: "cmda-minor-web") {
     repository(name: "web-app-from-scratch-2122") {
-      forks(first: 100) {
+      forks(first: 60) {
         edges {
           node {
             owner {
