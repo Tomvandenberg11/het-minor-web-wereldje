@@ -3,6 +3,8 @@ import { randomizeItems } from "./randomizeitems.js";
 
 randomizeItems()
 
+
+
 const container = document.querySelector("#field");
 let activeItem = null;
 let active = false;
@@ -60,8 +62,9 @@ const dragEnd = (e) => {
 const drag = (e) => {
   if (active) {
     if (e.type === "touchmove") {
+      //Mobile
       const rectItem = activeItem.getBoundingClientRect();
-
+      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
       if (
         rectItem.top > 520 &&
         rectItem.top < 660 &&
@@ -120,6 +123,12 @@ const drag = (e) => {
       activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
       activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
     } else {
+      //Desktop
+      const rectItem = activeItem.getBoundingClientRect();
+      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
+
+      
+
       activeItem.currentX = e.clientX - activeItem.initialX;
       activeItem.currentY = e.clientY - activeItem.initialY;
     }
@@ -132,8 +141,14 @@ const drag = (e) => {
 };
 
 const setTranslate = (xPos, yPos, el) => {
+  let scaleyPos = yPos
+
+  if ( scaleyPos < 100) {
+    scaleyPos = 100;
+  }
+
   el.style.transform =
-    "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    "translate3d(" + xPos + "px, " + yPos + "px, 0) scale(calc("+ scaleyPos +"/ 100))";
 };
 
 container.addEventListener("touchstart", dragStart, false);
