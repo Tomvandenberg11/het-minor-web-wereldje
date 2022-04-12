@@ -41,8 +41,6 @@ app.get("/", (req, res) => {
   const formProject = req.query.project
   const project = formProject ? formProject : 'web-app-from-scratch-2122'
 
-  console.log(project)
-
   graphqlAuth(`query {
   repositoryOwner(login: "cmda-minor-web") {
     repository(name: "${project}") {
@@ -57,6 +55,16 @@ app.get("/", (req, res) => {
               }
             }
             stargazerCount
+            url
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -66,6 +74,7 @@ app.get("/", (req, res) => {
     res.render('index', {
       projects: data.repositoryOwner.repository.forks.edges,
       currentProject: readableProject(project)
+
     })
   })
 })
@@ -73,7 +82,7 @@ app.get("/", (req, res) => {
 // Offline page
 app.get('/offline', (req, res) => {
   res.render("offline", {
-    title: "You are Offline"
+    title: "You are offline"
   });
 })
 
