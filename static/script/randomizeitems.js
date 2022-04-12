@@ -4,14 +4,13 @@ export const randomizeItems = (min, max) => {
     ball.forEach((element) => {
       getRndInteger(min, max);
       element.style.setProperty("--topBallPos", getRndInteger(15, 85) + "vh");
+
+      element.style.setProperty("--avatarScale", getRndInteger(100, 200) + "ms");
   
-      getRndInteger(min, max);
       element.style.setProperty("--leftBallPos", getRndInteger(10, 90) + "vw");
-  
-      getRndInteger(min, max);
+
       element.style.setProperty("--ballIndex", getRndInteger(2, ball.length + 1));
 
-      getRndInteger(min, max);
       element.style.setProperty("--falltimer", getRndInteger(3000, 6000) + "ms");
     });
   };
