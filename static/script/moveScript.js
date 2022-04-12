@@ -54,6 +54,8 @@ const dragEnd = (e) => {
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
 
+    console.log('yoyo' +  rectItem.bottom / window.innerHeight * 100)
+
     if ( rectItem.bottom < 495 ) {
         console.log('dood');
         // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
