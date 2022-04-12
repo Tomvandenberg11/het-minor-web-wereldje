@@ -1,8 +1,8 @@
 <div id="field">
     <% projects.forEach((repo) => {%>
         <div class="avatar" data-stars="<%= repo.node.stargazerCount %>">
-            <% if (Math.max(repo.node.stargazerCount)) {%>
-                <!--                        <img class="crown" src="/images/crown.png" alt="crown">-->
+            <% if (Math.max(repo.node.defaultBranchRef.target.history.totalCount)) {%>
+                <img class="crown" src="/images/crown.png" alt="crown">
             <%}%>
             <img class="avatarImg" src="<%= repo.node.owner.avatarUrl %>"/>
             <img class="poppetje" src="/images/idle.png" alt="avatar"/> 
