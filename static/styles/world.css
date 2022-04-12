@@ -13,10 +13,11 @@
     height: 110px;
     background: crimson;
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 10vw;
+    left: 10vw;
     transform: rotate(-5deg);
     padding: 10px 20px;
+    border: 5px inset black;
 }
 
 .billboard:before {
@@ -26,7 +27,7 @@
     width: 5px;
     background-color: #000;
     bottom: -50px;
-    left: 0;
+    left: -5px;
 }
 
 .billboard:after {
@@ -36,9 +37,37 @@
     width: 5px;
     background-color: #000;
     bottom: -50px;
-    right: 0;
+    right: -5px;
 }
 
 .leaderboard li {
     list-style-type: none;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown p {
+    margin-bottom: 20px;
+}
+
+.dropdown label {
+    font-size: 18px;
+}
+
+.dropdown select {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.dropdown button {
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
 }

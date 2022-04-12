@@ -15,10 +15,35 @@ app.set('views', 'views')
 
 app.use(express.static('static'))
 
+const readableProject = (project) => {
+  if (project === 'web-app-from-scratch-2122') {
+    project = 'Web apps from scratch'
+  }
+  if (project === 'css-to-the-rescue-2122') {
+    project = 'CSS to the rescue'
+  }
+  if (project === 'project-1-2122') {
+    project = 'Project OBA'
+  }
+  if (project === 'progressive-web-apps-2122') {
+    project = 'Progressive web apps'
+  }
+  if (project === 'browser-technologies-2122') {
+    project = 'Browser Technologies'
+  }
+  if (project === 'project-2-2122') {
+    project = 'Project GitHub'
+  }
+  return project
+}
+
 app.get("/", (req, res) => {
+  const formProject = req.query.project
+  const project = formProject ? formProject : 'web-app-from-scratch-2122'
+
   graphqlAuth(`query {
   repositoryOwner(login: "cmda-minor-web") {
-    repository(name: "web-app-from-scratch-2122") {
+    repository(name: "${project}") {
       forks(first: 60) {
         edges {
           node {
@@ -30,6 +55,16 @@ app.get("/", (req, res) => {
               }
             }
             stargazerCount
+            url
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -38,6 +73,8 @@ app.get("/", (req, res) => {
 }`).then((data) => {
     res.render('index', {
       projects: data.repositoryOwner.repository.forks.edges,
+      currentProject: readableProject(project)
+
     })
   })
 })
@@ -45,7 +82,7 @@ app.get("/", (req, res) => {
 // Offline page
 app.get('/offline', (req, res) => {
   res.render("offline", {
-    title: "You are Offline"
+    title: "You are offline"
   });
 })
 
