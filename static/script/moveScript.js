@@ -1,6 +1,18 @@
 // source: https://www.kirupa.com/html5/drag.htm
 import { randomizeItems } from "./randomizeitems.js";
 
+const installServiceWorker = async () => {
+  if ('serviceWorker' in navigator) {
+    try {
+      await navigator.serviceWorker.register('/service.js')
+    } catch (error) {
+      console.error(`Registration failed with ${error}`)
+    }
+  }
+}
+
+installServiceWorker()
+
 randomizeItems()
 
 const container = document.querySelector("#field");

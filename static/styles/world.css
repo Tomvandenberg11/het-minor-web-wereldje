@@ -20,12 +20,11 @@
 }
 
 .billboard {
-    width: 11vw;
     height: 6.5vw;
     z-index: 1;
     background: crimson;
     position: absolute;
-    top: 340px;
+    bottom: 44vh;
     left: 10vw;
     transform: rotate(-2deg);
     padding: 10px 20px;
@@ -63,6 +62,10 @@
     top: 10px;
     right: 10px;
     z-index: 1;
+    padding: 1em;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid;
 }
 
 .dropdown p {
