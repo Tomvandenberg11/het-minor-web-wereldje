@@ -12,8 +12,6 @@ body {
 }
 
 #field {
-    display: flex;
-    margin: 0 auto;
-    width: 95%;
-    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
 }
