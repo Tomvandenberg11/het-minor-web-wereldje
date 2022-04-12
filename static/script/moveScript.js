@@ -54,9 +54,9 @@ const dragEnd = (e) => {
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
 
-    console.log('yoyo' +  rectItem.bottom / window.innerHeight * 100)
+    console.log('yoyo ' +  rectItem.bottom / window.innerHeight * 100)
 
-    if ( rectItem.bottom < 495 ) {
+    if ( rectItem.bottom / window.innerHeight * 100 < 63 ) {
         console.log('dood');
         // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.classList.add('falling')
