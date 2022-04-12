@@ -1,0 +1,21 @@
+<% const starObj = projects.map((item) => {
+    return {
+        "name": item.node.owner.login,
+        "stars": item.node.stargazerCount
+    }
+})
+
+starObj.sort((a, b) => {
+    return a.stars - b.stars;
+})
+
+const mostStars = starObj.reverse().slice(0, 3) %>
+
+<div class="billboard">
+    <h2>Most stars:</h2>
+    <ul class="leaderboard">
+        <% mostStars.map((repo) => { %>
+                <li><%= repo.name %> - <%= repo.stars %></li>
+        <%})%>
+    </ul>
+</div>
