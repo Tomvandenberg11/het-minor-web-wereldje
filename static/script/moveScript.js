@@ -66,8 +66,6 @@ const dragEnd = (e) => {
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
 
-    console.log('yoyo ' +  rectItem.bottom / window.innerHeight * 100)
-
     if ( rectItem.bottom / window.innerHeight * 100 < 63 ) {
         console.log('dood');
         // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
@@ -85,7 +83,6 @@ const drag = (e) => {
     if (e.type === "touchmove") {
       //Mobile
       const rectItem = activeItem.getBoundingClientRect();
-      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
       if (
         rectItem.top > 520 &&
         rectItem.top < 660 &&
@@ -146,7 +143,6 @@ const drag = (e) => {
     } else {
       //Desktop
       const rectItem = activeItem.getBoundingClientRect();
-      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
 
       activeItem.currentX = e.clientX - activeItem.initialX;
       activeItem.currentY = e.clientY - activeItem.initialY;
@@ -162,11 +158,16 @@ const drag = (e) => {
 const setTranslate = (xPos, yPos, el) => {
   const rectItem = activeItem.getBoundingClientRect();
   let scaleyPos = rectItem.top / 670
+  let indexPos = rectItem.top
 
-  console.log(scaleyPos);
+  console.log(indexPos+'swag');
 
   if ( scaleyPos < .64 || rectItem.top < 260) {
     scaleyPos = .64;
+  }
+
+  if ( indexPos < 1) {
+    indexPos = 1;
   }
 
   el.style.transform =
