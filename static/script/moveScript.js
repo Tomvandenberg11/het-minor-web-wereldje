@@ -24,11 +24,11 @@ const dragStart = (e) => {
       }
 
       if (e.type === "touchstart") {
-        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
-        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
 
         // if (activeItem.dataset.stars == 0) {
         //   console.log('dood'+activeItem.dataset.stars)
@@ -56,7 +56,7 @@ const dragEnd = (e) => {
 
     if ( rectItem.top < 495 ) {
         console.log('dood');
-        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.classList.add('falling')
     }
 
