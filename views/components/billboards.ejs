@@ -15,7 +15,43 @@ const mostStars = starObj.reverse().slice(0, 3) %>
     <h2>Most stars:</h2>
     <ul class="leaderboard">
         <% mostStars.map((repo) => { %>
-                <li><%= repo.name %> - <%= repo.stars %></li>
+                <li>
+                    <%= repo.name %>
+                    <%
+                        for (let i = 0; i < repo.stars; i++) {
+                            %><img width="10px" height="10px" src="images/star.png" alt="star"/><%
+                        } %>
+                </li>
+        <%})%>
+    </ul>
+</div>
+
+
+
+
+<%
+const languageObj = []
+
+projects.map((item) => {
+    languageObj.push(item.node.primaryLanguage ? item.node.primaryLanguage.name : 'Geen code')
+})
+
+const mostLang = {}
+
+languageObj.forEach(function(obj) {
+    var key = JSON.stringify(obj)
+    mostLang[key] = (mostLang[key] || 0) + 1
+})
+
+delete mostLang['"Geen code"']
+%>
+
+<div class="billboard languages">
+    <h2>Most used languages:</h2>
+    <ul class="leaderboard">
+        <%
+        Object.entries(mostLang).forEach(([key, value]) => {%>
+            <li><%= JSON.parse(key) + ' - ' + value %></li>
         <%})%>
     </ul>
 </div>
