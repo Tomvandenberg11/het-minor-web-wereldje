@@ -10,7 +10,6 @@
     flex-direction: column;
     align-items: center;
     height: 7em;
-    cursor: grab;
 
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */

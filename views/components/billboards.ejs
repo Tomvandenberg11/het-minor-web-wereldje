@@ -12,7 +12,7 @@ starObj.sort((a, b) => {
 const mostStars = starObj.reverse().slice(0, 3) %>
 
 <div class="billboard">
-    <h2>Most stars:</h2>
+    <h2>Meeste stars:<br></h2>
     <ul class="leaderboard">
         <% mostStars.map((repo) => { %>
                 <li>
@@ -47,7 +47,7 @@ delete mostLang['"Geen code"']
 %>
 
 <div class="billboard languages">
-    <h2>Most used languages:</h2>
+    <h2>Meest gebruikte talen:</h2>
     <ul class="leaderboard">
         <%
         Object.entries(mostLang).forEach(([key, value]) => {%>
