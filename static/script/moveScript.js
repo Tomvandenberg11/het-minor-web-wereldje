@@ -36,11 +36,11 @@ const dragStart = (e) => {
       }
 
       if (e.type === "touchstart") {
-        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
-        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
 
         // if (activeItem.dataset.stars == 0) {
         //   console.log('dood'+activeItem.dataset.stars)
@@ -66,11 +66,9 @@ const dragEnd = (e) => {
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
 
-    console.log('yoyo ' +  rectItem.bottom / window.innerHeight * 100)
-
     if ( rectItem.bottom / window.innerHeight * 100 < 63 ) {
         console.log('dood');
-        // activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.classList.add('falling')
     }
 
@@ -85,7 +83,6 @@ const drag = (e) => {
     if (e.type === "touchmove") {
       //Mobile
       const rectItem = activeItem.getBoundingClientRect();
-      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
       if (
         rectItem.top > 520 &&
         rectItem.top < 660 &&
@@ -97,48 +94,6 @@ const drag = (e) => {
         }
       }
 
-      //   if (rectItem.top < 520 && rectItem.left < 180) {
-      //     activeItem.classList.remove("groter");
-
-      //     //Sleep uit lijst werkt nog niet goed
-      //     // var item = activeItem.id
-      //     // var index = list.indexOf(item);
-      //     // list.splice(index);
-      //   }
-
-      //   if (rectItem.left < -175) {
-      //     container.classList.remove("fireBorderLeft");
-      //     container.classList.add("fireBorderLeft");
-
-      //     container.onanimationend = () => {
-      //       container.classList.remove("fireBorderLeft");
-      //     };
-      //   }
-      //   if (rectItem.left > 350) {
-      //     container.classList.remove("fireBorderRight");
-      //     container.classList.add("fireBorderRight");
-
-      //     container.onanimationend = () => {
-      //       container.classList.remove("fireBorderRight");
-      //     };
-      //   }
-      //   if (rectItem.top < -145) {
-      //     container.classList.remove("fireBorderTop");
-      //     container.classList.add("fireBorderTop");
-
-      //     container.onanimationend = () => {
-      //       container.classList.remove("fireBorderTop");
-      //     };
-      //   }
-      //   if (rectItem.top > 750) {
-      //     container.classList.remove("fireBorderBottom");
-      //     container.classList.add("fireBorderBottom");
-
-      //     container.onanimationend = () => {
-      //       container.classList.remove("fireBorderBottom");
-      //     };
-      //   }
-
       e.preventDefault();
 
       activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
@@ -146,7 +101,6 @@ const drag = (e) => {
     } else {
       //Desktop
       const rectItem = activeItem.getBoundingClientRect();
-      console.log(rectItem.top + 'top / ' + rectItem.left + 'left');
 
       activeItem.currentX = e.clientX - activeItem.initialX;
       activeItem.currentY = e.clientY - activeItem.initialY;
@@ -162,11 +116,16 @@ const drag = (e) => {
 const setTranslate = (xPos, yPos, el) => {
   const rectItem = activeItem.getBoundingClientRect();
   let scaleyPos = rectItem.top / 670
+  let indexPos = rectItem.top
 
-  console.log(scaleyPos);
+  console.log(indexPos+'swag');
 
   if ( scaleyPos < .64 || rectItem.top < 260) {
     scaleyPos = .64;
+  }
+
+  if ( indexPos < 1) {
+    indexPos = 1;
   }
 
   el.style.transform =

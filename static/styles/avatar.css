@@ -23,11 +23,26 @@
     --scaleList: 1;
     --avatarScale: calc(var(--topBallPos) / 70);
     --falltimer: 4;
+    --Alienturner: 360;
   
     top: calc(var(--topBallPos) * 1vh);
     left: var(--leftBallPos);
-    z-index: var(--ballIndex);
+    z-index: var(--topBallPos);
     transform: scale(var(--avatarScale));
+    animation: fallingSpawn var(--falltimer) ease-in;
+}
+
+@keyframes fallingSpawn {
+    0% {
+        transform: translateY(-100vh) scale(var(--avatarScale));
+        pointer-events: none;
+    }
+
+    100%{
+        transform: scale(var(--avatarScale));
+        pointer-events: none;
+    }
+
 }
 
 .avatar a {
@@ -52,6 +67,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     pointer-events: none;
+    transform-origin: center 60px;
 }
 
 .crown {
@@ -75,10 +91,15 @@
     -ms-user-select: none;
     pointer-events: none;
     transition: 3s;
+    transform-origin: center;
 }
 
 .falling {
     animation: falling 7s forwards;
+}
+
+.falling > img {
+    animation: turning 5s infinite linear;
 }
 
 .falling::before {
@@ -91,6 +112,7 @@
     filter: blur(20px);
     top: -80vh;
     background-color: lime;
+    animation: none;
 }
 
 .falling:after {
@@ -103,10 +125,21 @@
     filter: blur(20px);
     bottom: -7vh;
     background-color: limegreen;
+    animation: none;
 }
 
 @keyframes falling {
     100%{
         top: -30vh;
+    }
+}
+
+@keyframes turning {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(var(--Alienturner));
     }
 }
