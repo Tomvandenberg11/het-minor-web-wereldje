@@ -45,7 +45,7 @@
 
 .treeImage:nth-of-type(1) {
     width: 13%;
-    z-index: 12;
+    z-index: 65;
     bottom: 22vh;
     left: .5vw;
 }

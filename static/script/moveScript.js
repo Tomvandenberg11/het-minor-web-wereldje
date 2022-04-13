@@ -116,7 +116,7 @@ const drag = (e) => {
 const setTranslate = (xPos, yPos, el) => {
   const rectItem = activeItem.getBoundingClientRect();
   let scaleyPos = rectItem.top / 670
-  let indexPos = rectItem.top / 10
+  let indexPos = rectItem.top / 10 + 2
 
   if ( scaleyPos < .64 || rectItem.top < 260) {
     scaleyPos = .64;

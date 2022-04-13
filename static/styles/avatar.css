@@ -32,6 +32,10 @@
     animation: fallingSpawn var(--falltimer) ease-in;
 }
 
+.avatar:active {
+    cursor: grabbing;
+}
+
 @keyframes fallingSpawn {
     0% {
         transform: translateY(-100vh) scale(var(--avatarScale));
