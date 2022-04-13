@@ -32,6 +32,11 @@
     animation: fallingSpawn var(--falltimer) ease-in;
 }
 
+.avatarLopen {
+    left: 110vw;
+    transition: 30s;
+}
+
 .avatar:active {
     cursor: grabbing;
 }

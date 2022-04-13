@@ -37,18 +37,12 @@ const dragStart = (e) => {
 
       if (e.type === "touchstart") {
         activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
+        activeItem.classList.remove('avatarLopen')
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
         activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
-
-        // if (activeItem.dataset.stars == 0) {
-        //   console.log('dood'+activeItem.dataset.stars)
-        //   activeItem.querySelector('.avatarImg').src = "../images/hoofdboem.gif"
-        //   activeItem.querySelector('.avatarImg').style.transform = 'scale(1.5) translateX(2px)'
-        // } else {
-        //   console.log('leeft'+activeItem.dataset.stars)
-        // }
+        activeItem.classList.remove('avatarLopen')
 
 
         activeItem.initialX = e.clientX - activeItem.xOffset;
@@ -61,15 +55,16 @@ const dragStart = (e) => {
 const dragEnd = (e) => {
   if (activeItem !== null) {
     const rectItem = activeItem.getBoundingClientRect();
-    activeItem.querySelector('.poppetje').src = "../images/idle.png"
+    activeItem.querySelector('.poppetje').src = "../images/lopen.gif"
+    activeItem.classList.add('avatarLopen')
     activeItem.classList.remove('falling')
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
 
     if ( rectItem.bottom / window.innerHeight * 100 < 63 ) {
-        console.log('dood');
         activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.classList.add('falling')
+        activeItem.classList.remove('avatarLopen')
     }
 
   } 
