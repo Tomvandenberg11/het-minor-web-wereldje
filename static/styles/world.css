@@ -2,10 +2,24 @@
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: url(../images/skyline.png);
     background-color: #2a2a72;
     background: linear-gradient( 0deg, rgba(138, 225, 255, 1) 40%, rgba(24, 129, 255, 1) 60%, rgba(0, 11, 47, 1) 96% );
-    background-position: 50% 0px;
+    background-position: 50% 0vh;
     background-size: 117%;
+    background-repeat: no-repeat;
+}
+
+.world::after {
+    content: '';
+    background-image: url(../images/skyline.png);
+    background-repeat: round;
+    width: 100vw;
+    height: 60vh;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    top: 0;
 }
 
 .world::before {
@@ -21,7 +35,7 @@
 
 .billboard {
     height: 6.5vw;
-    z-index: 1;
+    z-index: 2;
     background: crimson;
     position: absolute;
     bottom: 44vh;
