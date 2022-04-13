@@ -19,3 +19,33 @@ const mostStars = starObj.reverse().slice(0, 3) %>
         <%})%>
     </ul>
 </div>
+
+
+
+
+<%
+const languageObj = projects.map((item) => {
+    console.log(item.node.primaryLanguage)
+    // return {
+    //     "name": item.node.owner.login,
+    //     "stars": item.node.languages.name
+    // }
+})
+
+languageObj.sort((a, b) => {
+    return a.stars - b.stars;
+})
+
+console.log(languageObj)
+
+// const mostStars = starObj.reverse().slice(0, 3)
+%>
+
+<div class="billboard languages">
+    <h2>Most used languages:</h2>
+    <ul class="leaderboard">
+        <% mostStars.map((repo) => { %>
+            <li><%= repo.name %> - <%= repo.stars %></li>
+        <%})%>
+    </ul>
+</div>

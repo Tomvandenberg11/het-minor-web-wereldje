@@ -44,9 +44,14 @@ app.get("/", (req, res) => {
   graphqlAuth(`query {
   repositoryOwner(login: "cmda-minor-web") {
     repository(name: "${project}") {
+      forkCount
       forks(first: 60) {
         edges {
           node {
+            primaryLanguage {
+              id
+              name
+            }
             owner {
               avatarUrl
               login
