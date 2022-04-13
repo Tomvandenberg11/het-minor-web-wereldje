@@ -6,8 +6,6 @@ export const randomizeItems = (min, max) => {
   
       element.style.setProperty("--leftBallPos", getRndInteger(5, 90) + "vw");
 
-      element.style.setProperty("--ballIndex", getRndInteger(2, ball.length + 1));
-
       element.style.setProperty("--falltimer", getRndInteger(3000, 6000) + "ms");
 
       element.style.setProperty("--Alienturner", getRndInteger(-840, 840) + "deg");

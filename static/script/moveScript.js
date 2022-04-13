@@ -116,9 +116,7 @@ const drag = (e) => {
 const setTranslate = (xPos, yPos, el) => {
   const rectItem = activeItem.getBoundingClientRect();
   let scaleyPos = rectItem.top / 670
-  let indexPos = rectItem.top
-
-  console.log(indexPos+'swag');
+  let indexPos = rectItem.top / 10
 
   if ( scaleyPos < .64 || rectItem.top < 260) {
     scaleyPos = .64;
@@ -130,6 +128,8 @@ const setTranslate = (xPos, yPos, el) => {
 
   el.style.transform =
     "translate3d(" + xPos + "px, " + yPos + "px, 0) scale("+ scaleyPos +")";
+  console.log(indexPos.toFixed(0));
+  el.style.zIndex = indexPos.toFixed(0);
 };
 
 container.addEventListener("touchstart", dragStart, false);
