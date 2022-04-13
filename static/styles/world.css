@@ -20,7 +20,6 @@
 }
 
 .billboard {
-    height: 6.5vw;
     z-index: 1;
     background: crimson;
     position: absolute;
@@ -49,6 +48,14 @@
     background-color: #000;
     bottom: -50px;
     right: -5px;
+}
+
+.languages {
+    bottom: 44vh;
+    right: 10vw;
+    left: auto;
+    background-color: cornflowerblue;
+    transform: rotate(2deg);
 }
 
 .leaderboard li {
