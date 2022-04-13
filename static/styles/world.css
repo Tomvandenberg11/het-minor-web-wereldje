@@ -34,12 +34,13 @@
 }
 
 .billboard {
-    height: 6.5vw;
+    height: 5.5vw;
     z-index: 2;
     background: crimson;
     position: absolute;
     bottom: 44vh;
     left: 10vw;
+    font-size: .8em;
     transform: rotate(-2deg);
     padding: 10px 20px;
     border: 5px inset black;
