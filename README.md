@@ -6,6 +6,11 @@ De website is [hier](https://minor-wereldje.herokuapp.com/ "Link") te zien.
 
 ![Screenshot](static/images/screenshot.png)
 
+### Contributors
+
+- [Tim de Roller](https://github.com/maggness/ "Link")
+- [Tom van den Berg](https://github.com/Tomvandenberg11/ "Link")
+
 ## Inhoudsopgave
 
 - [Installatie](#installatie-)
