@@ -14,6 +14,7 @@ De website is [hier](https://minor-wereldje.herokuapp.com/ "Link") te zien.
 ## Inhoudsopgave
 
 - [Installatie](#installatie-)
+- [Applicatie](#applicatie-)
 - [API](#api-)
 - [Service Worker](#service-worker-)
 - [Licence](#licence-)
@@ -40,6 +41,9 @@ Als je de bovenstaande stappen gevolgd hebt kan de app opgestart worden door:
 
 te runnen in de terminal.
 Je ziet dan een bericht in de terminal staan op welke link de app te zien is.
+
+## Applicatie 📱
+Wij hebben ervoor gekozen om een parkje te maken met daarin alle mensen die een repo geforkt hebben. Deze repo ken rechtsboven worden aangepast. Verder staan op de billboards de repo met de meeste stars en de meest gebruikte taal. Degene met een kroontje heeft de meeste commits gedaan voor de desbetreffende repository. 
 
 ## API 💿
 
