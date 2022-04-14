@@ -1,97 +1,123 @@
-# Project 2: GitHub Hackaton 2021/22
+# Het minor web wereldje
 
-Four days of creative exploration using the GitHub GraphQL API as the outset.
+Welkom bij ons project van [Project 2](https://github.com/cmda-minor-web/project-2-2122 "Minor link"). Bij dit project van de Minor 'Webdesign and development' is het de bedoeling dat we kennis gaan maken met de GitHub GraphQL API.
 
-## Table of Contents
-- [Synopsis](#synopsis)
-- [Description](#description)
-- [Communication](#communication)
-- [Goals](#goals)
-- [Grading](#grading)
-- [Programme](#programme)
+De website is [hier](https://minor-wereldje.herokuapp.com/ "Link") te zien.
 
-## Synopsis
-- Course: Project 2: GitHub Hackaton
-- Course Coordinator: Justus Sturkenboom ([@ju5tu5](https://github.com/ju5tu5)) & Robert Spier ([@roberrrt-s](https://github.com/roberrrt-s))
-- Minor Coordinator(s): Joost Faber ([@joostf](https://github.com/joostf)) & Koop Reynders ([@KoopReynders](https://github.com/KoopReynders))
-- Lecturers: Robert Spier ([@roberrrt-s](https://github.com/roberrrt-s) & Justus Sturkenboom ([@ju5tu5](https://github.com/ju5tu5))
-- Student Assistants: Daan Korver ([@daankorver](https://github.com/DaanKorver))
-- Credit: ??
-- Academic year: 2021-2022
-- Programme: Communication and Multimedia Design (full time bachelor)
-- Language: Dutch instructions and English resources
+![Screenshot](static/images/screenshot.png)
 
-## Description
+### Contributors
 
-## Communication
-- [Github](https://github.com/cmda-minor-web/progressive-web-apps-2122)
-- [Microsoft Teams](https://teams.microsoft.com/l/channel/19%3aacf0946687dc4ba9a9400fb7c6d7a81c%40thread.tacv2/05%2520-%2520Progressive%2520Web%2520Apps)
-- [Brightspace](https://dlo.mijnhva.nl/d2l/home/324147)
+- [Tim de Roller](https://github.com/maggness/ "Link")
+- [Tom van den Berg](https://github.com/Tomvandenberg11/ "Link")
 
-If you have questions:
-- [Look at the additional resources]()
-- [Use a search engine like startpage](https://www.startpage.com/)
-- [Ask questions on MS Teams](https://teams.microsoft.com/l/channel/19%3a2b5ac900b14c4b68a31dc5dbb380dcbe%40thread.tacv2/06%2520-%2520Real%2520Time%2520web) (please help each other!)
-- [Contact a student-assisstant](#synopsis)
-- [Contact a lecturer](#synopsis)
+## Inhoudsopgave
 
-## Goals
-After finishing this program you can:
-- ...
+- [Installatie](#installatie-)
+- [Applicatie](#applicatie-)
+- [API](#api-)
+- [Service Worker](#service-worker-)
+- [Licence](#licence-)
+- [Credits](#credits-)
 
-## Grading
-Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
+## Installatie ⚙️
 
-| Deficiency | Criterion | Improvement |
-|:--|:--|:--|
-|   |   |   |
+#### Clonen
 
-## Programme
+Om de app lokaal te laten draaien moet het project eerst lokaal worden gecloned.
+Als dit stukje code gerunt wordt in de terminal wordt de repository lokaal gecloned:
 
-### Monday 11 april
-We start out with an explanation of this Hackaton and a short introduction on GraphQL and working with the GitHub GraphQL API.
+`gh repo clone tomvandenberg11/project-2-2122`
 
-| Time | Who | Activity |
-|:--|:--|:--|
-| 09.30 | Tribe *+(Robert, Justus)* | Hackaton Kickoff |
-| 12.30 | Tribe *+(Daan)* | Hack.. hack.. hack.. |
-| 16.00 | Tribe | Wrap-up for the day |
+Ga eerst naar de folder waarin je wilt dat het project gecloned wordt. Je kan in de terminal navigeren met `cd` met daar achter de map waar je heen wilt.
 
-### Tuesday 12 april
+Daarna is het nodig om `node` en `npm` geinstalleerd te hebben op je lokale computer. Als je deze stappen gevolgd hebt, worden met `npm install` de benodigde packages gedownload.
 
+#### Running
 
-### Wednesday 13 april
+Als je de bovenstaande stappen gevolgd hebt kan de app opgestart worden door:
 
+`npm run dev`
 
-### Monday 14 april
+te runnen in de terminal.
+Je ziet dan een bericht in de terminal staan op welke link de app te zien is.
 
+## Applicatie 📱
+Wij hebben ervoor gekozen om een parkje te maken met daarin alle mensen die een repo geforkt hebben. Deze repo ken rechtsboven worden aangepast. Verder staan op de billboards de repo met de meeste stars en de meest gebruikte taal. Degene met een kroontje heeft de meeste commits gedaan voor de desbetreffende repository. 
 
-<!-- Here are some hints for your project! -->
+## API 💿
 
-<!-- Start out with a title and a description -->
+Voor de API van dit project hebben we de GitHub GraphQL API gebruikt. Hiermee kunnen we alle data van GitHub halen die openbaar is. 
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+Er dient eerst een key aangemaakt te worden in je GitHub account. Vanaf daar kan bepaalt worden welke rechten er aan die key verbonden zijn. Als er geen rechten zijn verleend kan er met de key alle openbare data van GutHub worden gehaald.
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+Als dat gelukt is kan er data worden opgehaald vanuit de API. We hebben de volgende query gebruikt om de data eruit te krijgen:
+```javascript
+query {
+  repositoryOwner(login: "cmda-minor-web") {
+    repository(name: "${project}") {
+      forkCount
+      forks(first: 60) {
+        edges {
+          node {
+            primaryLanguage {
+              id
+              name
+            }
+            owner {
+              avatarUrl
+              login
+              ... on User {
+                url
+              }
+            }
+            stargazerCount
+            url
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+Hiermee kunnen we alle vakken openbare data dynamisch ophalen vanuit de API. 
 
-<!-- Maybe a table of contents here? 📚 -->
+De API komt met een handige documentatie waarmee de data gevonden kan worden: https://docs.github.com/en/graphql/overview/explorer
 
-<!-- ☝️ replace this description with a description of your own work -->
+## Service Worker 🏋🏻‍♀️
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+De service worker zorgt ervoor dat bepaalde bestanden gecached worden in het geval er geen internet connectie meer is. De bestanden die ik cache zijn:
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+```javascript
+const CORE_ASSETS = [
+  '/styles/style.css',
+  '/styles/avatar.css',
+  '/styles/world.css',
+  '/script/moveScript.js',
+  '/script/randomizeItems.js',
+  '/images/berg.jpg',
+  '/images/crown.png',
+  '/images/idle.png',
+  '/images/vasthouden.gif',
+]
+```
 
-<!-- ...you should implement an explanation of client- server rendering choices 🍽 -->
+Hierdoor zijn deze bestanden ook beschikbaar als er geen internet connectie is. De bestanden worden opgeslagen in de browser.
 
-<!-- ...and an activity diagram including the Service Worker 📈 -->
+## Licence 👨🏻‍⚖️
 
-<!-- This would be a good place for a list of enhancements to optimize the critical render path implemented your app  -->
+Dit project is voorzien van een MIT licence. Zie de pagina LICENCE voor meer informatie.
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+## Credits 📣
 
-<!-- We all stand on the shoulders of giants, please link all the sources you used in to create this project. -->
-
-<!-- How about a license here? When in doubt use GNU GPL v3. 📜  -->
+Ik wil graag als eerste de docenten bedanken voor al hun inzet, uitleg en lesstof. Ten tweede wil ik mijn supportgroepje bedanken voor de mentale en functionele support. Ten derde wil ik Stackoverflow bedanken voor al hun antwoorden op mijn vragen.
