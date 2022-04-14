@@ -9,7 +9,24 @@ export const randomizeItems = (min, max) => {
       element.style.setProperty("--falltimer", getRndInteger(3000, 6000) + "ms");
 
       element.style.setProperty("--Alienturner", getRndInteger(-840, 840) + "deg");
-    });
+
+      element.style.setProperty("--walkingLeft", getRndInteger(10, 90));
+      
+      element.style.setProperty("--transitionWalkingTime", getRndInteger(30, 50));
+
+        const lopen = () => {
+          setTimeout(() => {
+            element.classList.add('avatarLopen')
+            element.querySelector('.poppetje').src = "../images/lopen.gif"
+            setTimeout(() => {
+              element.style.setProperty("--walkingLeft", getRndInteger(10, 90));
+              element.style.setProperty("--transitionWalkingTime", getRndInteger(30, 50));
+              lopen()
+            }, getRndInteger(1000, 15000));
+          }, getRndInteger(9000, 30000));
+        }
+        lopen()
+      });
   };
   
   const getRndInteger = (min, max) => {

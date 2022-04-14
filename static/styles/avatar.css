@@ -23,6 +23,8 @@
     --avatarScale: calc(var(--topBallPos) / 70);
     --falltimer: 4;
     --Alienturner: 360;
+    --walkingLeft: 110;
+    --transitionWalkingTime: 30;
   
     top: calc(var(--topBallPos) * 1vh);
     left: var(--leftBallPos);
@@ -32,8 +34,8 @@
 }
 
 .avatarLopen {
-    left: 110vw;
-    transition: 30s;
+    left: calc(var(--walkingLeft) * 1vw);
+    transition: calc(var(--transitionWalkingTime) * 1s); 
 }
 
 .avatar:active {

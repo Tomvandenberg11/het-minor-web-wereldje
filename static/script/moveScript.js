@@ -19,7 +19,7 @@ const container = document.querySelector("#field");
 let activeItem = null;
 let active = false;
 
-const dragStart = (e) => {
+const dragStart = (e, yPos) => {
   if (e.target !== e.currentTarget) {
     active = true;
 
@@ -44,6 +44,9 @@ const dragStart = (e) => {
         activeItem.querySelector('.poppetje').src = "../images/vasthouden.gif"
         activeItem.classList.remove('avatarLopen')
 
+        let test = e.clientX - activeItem.xOffset
+        activeItem.style.setProperty("--leftBallPos", test / window.innerWidth * 100 - 2.5 + "vw");
+        console.log(test / window.innerWidth * 100);
 
         activeItem.initialX = e.clientX - activeItem.xOffset;
         activeItem.initialY = e.clientY - activeItem.yOffset;
@@ -95,7 +98,6 @@ const drag = (e) => {
       activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
     } else {
       //Desktop
-      const rectItem = activeItem.getBoundingClientRect();
 
       activeItem.currentX = e.clientX - activeItem.initialX;
       activeItem.currentY = e.clientY - activeItem.initialY;
@@ -123,7 +125,6 @@ const setTranslate = (xPos, yPos, el) => {
 
   el.style.transform =
     "translate3d(" + xPos + "px, " + yPos + "px, 0) scale("+ scaleyPos +")";
-  console.log(indexPos.toFixed(0));
   el.style.zIndex = indexPos.toFixed(0);
 };
 
