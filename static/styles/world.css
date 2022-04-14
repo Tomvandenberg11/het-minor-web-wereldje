@@ -96,6 +96,11 @@
     padding: 10px 20px;
     border: 5px inset black;
     pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .billboard:before {

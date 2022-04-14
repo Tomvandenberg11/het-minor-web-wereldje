@@ -5,9 +5,10 @@ const CORE_ASSETS = [
   '/styles/world.css',
   '/script/moveScript.js',
   '/script/randomizeItems.js',
-  '/images/berg.jpg',
+  '/images/skyline.png',
   '/images/crown.png',
   '/images/idle.png',
+  '/images/lopen.gif',
   '/images/vasthouden.gif',
 ]
 

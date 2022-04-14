@@ -33,13 +33,13 @@
     animation: fallingSpawn var(--falltimer) ease-in;
 }
 
+.avatar:active {
+    cursor: url("../images/GRAB.png") 30 30, grabbing;
+}
+
 .avatarLopen {
     left: calc(var(--walkingLeft) * 1vw);
     transition: calc(var(--transitionWalkingTime) * 1s); 
-}
-
-.avatar:active {
-    cursor: grabbing;
 }
 
 @keyframes fallingSpawn {

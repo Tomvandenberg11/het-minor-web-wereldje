@@ -1,3 +1,11 @@
+html {
+    cursor: url("../images/noGRAB.png") 30 30, grab;
+}
+
+html:active {
+    cursor: url("../images/GRAB.png") 30 30, grabbing;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +17,10 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     height: 100vh;
     width: 100vw;
-    cursor: url("../images/hand.png") 30 30, grab;
+}
+
+body:active {
+    cursor: url("../images/GRAB.png") 30 30, grabbing;
 }
 
 #field {
