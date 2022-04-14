@@ -17,7 +17,7 @@ export const randomizeItems = (min, max) => {
         const lopen = () => {
           setTimeout(() => {
             element.classList.add('avatarLopen')
-            element.querySelector('.poppetje').src = "../images/lopen.gif"
+            element.querySelector('.poppetje').src = "../images/lopen"+ getRndInteger(1, 6) +".gif"
             setTimeout(() => {
               element.style.setProperty("--walkingLeft", getRndInteger(10, 90));
               element.style.setProperty("--transitionWalkingTime", getRndInteger(30, 50));

@@ -8,7 +8,11 @@ const CORE_ASSETS = [
   '/images/skyline.png',
   '/images/crown.png',
   '/images/idle.png',
-  '/images/lopen.gif',
+  '/images/lopen1.gif',
+  '/images/lopen2.gif',
+  '/images/lopen3.gif',
+  '/images/lopen4.gif',
+  '/images/lopen5.gif',
   '/images/vasthouden.gif',
 ]
 

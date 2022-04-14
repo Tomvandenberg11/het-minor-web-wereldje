@@ -58,7 +58,7 @@ const dragStart = (e, yPos) => {
 const dragEnd = (e) => {
   if (activeItem !== null) {
     const rectItem = activeItem.getBoundingClientRect();
-    activeItem.querySelector('.poppetje').src = "../images/lopen.gif"
+    activeItem.querySelector('.poppetje').src = "../images/lopen1.gif"
     activeItem.classList.add('avatarLopen')
     activeItem.classList.remove('falling')
     activeItem.initialX = activeItem.currentX;
